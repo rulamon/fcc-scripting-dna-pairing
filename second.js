@@ -1,21 +1,21 @@
-function pairElement(str) {
-	return str.split("").map(x => {
-		let arr = [x];
-		switch(x) {
+const pairSwitch = (str) => {
+		switch(str) {
 			case "G":
-			arr.push("C");
+			return(["G","C"]);
 			break;
 			case "C":
-			arr.push("G");
+			return(["C","G"]);
 			break;
 			case "A":
-			arr.push("T");
+			return(["A","T"]);
 			break;
 			case "T":
-			arr.push("A");
+			return(["T","A"]);
 			break;
 		}
-		return arr;
-	})
+};
+
+function pairElement(str) {
+	return str.split("").map(pairSwitch);
 }
 console.log(pairElement("GCG"));
